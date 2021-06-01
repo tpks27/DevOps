@@ -1,0 +1,7 @@
+Configure httpd:
+Allow the port no 80 in the security groups
+
+
+Fot testing:
+Copy and paste the public IP address in the browser
+If Red Hat Enterprise Linux Test Page opens in the browser, then we can say that the HTTP server is working properly after installation. 

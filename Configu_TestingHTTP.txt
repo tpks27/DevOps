@@ -4,4 +4,15 @@ Allow the port no 80 in the security groups
 
 Fot testing:
 Copy and paste the public IP address in the browser
-If Red Hat Enterprise Linux Test Page opens in the browser, then we can say that the HTTP server is working properly after installation. 
+If Red Hat Enterprise Linux Test Page opens in the browser, then we can say that the HTTP server is working properly after installation.
+
+To Check the Port numbers running:
+netstat -lntp
+We can check the servers running in the machine using the above command
+
+To filter the search, use the grep command
+For example:
+netstat -lntp | grep :80
+
+
+

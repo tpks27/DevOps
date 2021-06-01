@@ -14,5 +14,26 @@ To filter the search, use the grep command
 For example:
 netstat -lntp | grep :80
 
+-----------------------------------------------------------------------
 
+We can change the port number in the httpd.conf file.
+cd /etc/httpd/
+ls
+conf
+ls
+vi httpd.conf
+Change the listen port number to the desired open
+#Listen 12.34.56.78:80
+Listen 80
 
+Listen NewPort Number
+(Predefined : 80)
+
+------------------------------------------------------------------------
+Once the port number is changed, restart the service 
+service httpd restart
+netstat -lntp
+-----------------------------------------------------------------------
+/var/www/html is just the default root folder of the web server.
+sudo vi index.html
+Put your html code in the index.html, for the testing the web Page

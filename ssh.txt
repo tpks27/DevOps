@@ -1,0 +1,81 @@
+SSH
+Secure Shell
+- Protocol to communicate with the other computers
+- All the traffic is encrypted
+SSH is the client
+SSHD (Open SSH Daemon) must be installed to use SSH
+
+ssh {user}@{host}
+User represents the account that you want to access
+The host is the computer that you want to access. It can be an IP address or a domain name;
+IP e.g., 123.234.45.56
+Domain name: www.tpk.com
+
+
+Setting Password Authentication for the AWS ec2 instance:
+
+Open the sshd_config file:
+sudo vi /etc/ssh/sshd_config and change the line containing PasswordAuthentication no to PasswordAuthentication yes
+
+Save the file and restart the sshd service using the following command:
+sudo service sshd restart
+
+Now you can log in using the password instead of the .pem file.
+
+Login into the server using the key which is generated on the local machine:
+
+1.	Generating the key in the local machine:
+
+ssh-keygen
+
+keys are generated in the .ssh directory.
+For example:
+.ssh ls
+id_rsa      id_rsa.pub  known_hosts
+
+2.	Adding the key to the server
+
+cat ~/.ssh/id_rsa.pub | ssh username@IP_address/domain_name "mkdir -p ~/.ssh && chmod 700 ~/.ssh && cat >> ~/.ssh/authorized_keys”
+ or 
+ssh-copy-id username@IP_address/domain_name
+
+and next type the Server’s password to copy the key generated in the local machine
+  
+now login into the server directly - ssh username@IP_address/domain_name
+
+Secure copying of files:
+
+Let us consider 2 servers, Server1 and Server2 and a Local Machine
+
+1.	Copying a file from Server1 to Server2 (Push Operation)
+Login into the server1 machine  scp SourcePathofFile(Server1) Destination(username@IPaddress/Domain_name:DestinationPath)
+
+For example: 
+scp /home/ec2-user/test.txt ec2-user@ec1-2-345-000-99.xxxxxxxxxxxxx.com:/home/ec2-user/
+
+Password: (of the destination Server)
+
+scp /home/ec2-user/test.txt ec2-user@Public_IP:/home/ec2-user/
+
+Password:
+
+scp /home/ec2-user/test.txt ec2-user@Private_IP:/home/ec2-user/
+
+Password:
+
+Since both the servers belong to the same network, we can copy the files using the private IP also which is commonly used among organizations.
+
+2.	Pulling a file from Server1 to Server2
+
+Login into the server2  scp source-user@IP/DomainName:filePath DestinationPath
+
+Password: (of Source Server {here Server1})
+
+Example: scp ec2-user@IP_address:/home/ec2-user/test.txt /home/ec2-user/
+
+
+3.	Copying file from Local Machine to the server 
+Consider transferring from Local machine to Server1
+scp /zzz/yyy/xxx/test.txtuser@PublicIP_address/DomainName:Destination_path
+Example: scp /zzz/yyy/xxx/test.txt ec2-user@1.234.124.11:/home/ec2-user/
+

@@ -1,0 +1,35 @@
+GITHUB
+To connect the GitHub, 
+
+It should have the public key of your computer
+Create the SSH key pair
+ssh -keygen
+To keep the ssh-keygen simple, do not enter any key name or passphrase.
+- /Users/user_name/.ssh/
+Name of the file - id_rsa.pub
+Adding SSH key to your GitHub account 
+GitHub Account -> Settings
+Settings -> SSH and GPG keys 
+click on New SSH Key. Assign some meaningful name to your key
+cat id_rsa.pub
+Copy the content of the key
+Paste the key inside your GitHub account
+Now you can clone your GitHub repo and it will not complain about git@github.com permission denied (publickey). fatal could not read from remote repository
+
+Benefits of this approach
+1.	You do not need to supply you GitHub Username and password
+2.	More secured
+
+
+Drawback
+The process of generating SSH keys is little troublesome.
+If you switch your laptop/desktop then you need re-generate the SSH keys again and perform the same steps onto your new laptop/desktop
+This is one more approach in which you do not need to worry about SSH key generation.
+You need following -
+1.	GitHub repo URL with HTTPS
+2.	Your GitHub Username
+3.	Your GitHub Password
+
+
+
+

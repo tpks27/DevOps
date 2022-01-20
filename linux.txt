@@ -85,10 +85,10 @@ find <path> -type f -name <filename>
 find . -type f -name "course*"
 
 find . -type f -mtime +10 
-#to search for the files based on days( 10 days back) 
+#to search for the files based on days( 10 days before) 
 
 find . -type f -mtime -10
-#after 10 days
+#within  10 days
 
 Can search for directories also
 find . -type d -mtime -4

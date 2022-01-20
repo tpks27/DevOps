@@ -1,0 +1,105 @@
+#Pipe is used to direct the one command o/p to another i/p
+| ==> Pipe command signal
+#grep 
+The grep command can search for a string in groups of files
+
+For Example:
+cat new.py | grep enter
+ print("Please enter single character: ")
+        print("Please enter single character: ")
+
+
+new.py
+ cat new.py 
+
+x=input('Enter the first character of your name: ')
+
+if len(x) != 1:
+    print("Please enter single character: ")
+    x=input()
+    if len(x) !=1:
+        print("Please enter single character: ")
+        x = input()
+
+else:
+    print(x)
+
+---------------------
+Word Count
+#wc -l 
+ wc -l new.py
+      15 new.py
+
+#wc -c new.py
+     240 new.py
+
+#wc -w new.py
+      31 new.py
+--------------------
+#How to Replace word 
+sed command is used- Stream editor
+sed -i 's/ice/peas/g' text.txt
+
+
+sed -i "specificnop" filename
+Print the specific line in a file 
+sed -n "3p" cc1.txt
+    for k, v in data.items():
+
+sed -n "1,5p" ss.txt
+def prPerson(**data):
+    for k,v in data.items():
+        print(k,":",v)
+
+prPerson(name="Krishna", age=26)Hello, this is for texting%   
+
+To delete the specific lines in output(not in the original files)
+
+sed "lined" filename
+
+sed "2d" text.txt
+--------------------------------------
+sed "2d" new.py > w.txt
+➜  chinnari cat w.txt
+
+
+if len(x) != 1:
+    print("Please enter single character: ")
+    x=input()
+    if len(x) !=1:
+        print("Please enter single character: ")
+        x = input()
+
+else:
+    print(x)
+
+-------------------------------------------
+find command:
+
+to search for the file
+syntax:
+
+find <path> -type f -name <filename>
+
+. ==> Present working directory
+find . -type f -name "course*"
+
+find . -type f -mtime +10 
+#to search for the files based on days( 10 days back) 
+
+find . -type f -mtime -10
+#after 10 days
+
+Can search for directories also
+find . -type d -mtime -4
+
+-exex ==> It is used to execute another command along with find command
+
+find . -type f -mtime -4 -exec ls -lrt {} \; 
+------------------------------------------
+
+
+
+
+
+

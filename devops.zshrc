@@ -20,7 +20,8 @@ install_if_needed() {
 install_docker_desktop() {
     if ! command_exists "docker"; then
         echo "Installing Docker Desktop..."
-        brew install --cask docker
+        sudo -v
+        sudo brew install --cask docker
         echo "Please start Docker Desktop manually and then run 'docker --version' to verify the installation."
     else
         echo "Docker Desktop is already installed."
